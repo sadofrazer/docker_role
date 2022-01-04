@@ -7,11 +7,10 @@
 - name: Download Install docker script
   template:
     src: "install_docker.sh.j2"
-    dest: /home/ubuntu/install_docker.sh
-    tags: template
+    dest: "/home/{{ ansible_user }}/install_docker.sh"
 
 - name: run script to install docker
-  command: "sh /home/ubuntu/install_docker.sh"
+  command: "sh /home/{{ ansible_user }}/install_docker.sh"
   when: ansible_docker0 is undefined
 
 - name: start service docker
