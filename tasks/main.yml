@@ -2,7 +2,7 @@
 - name: "edit the name of the host"
   hostname: 
     name: "{{ hostname }}"
-  when: edit_hostname == yes
+  when: edit_hostname == "yes"
 
 - name: Download Install docker script
   template:
