@@ -3,4 +3,4 @@
 hostname: "AnsibleWorker"
 
 #Edit hostname (yes or no)
-edit_hostname: "yes" 
+edit_hostname: "no" 
