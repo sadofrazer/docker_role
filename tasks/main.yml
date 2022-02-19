@@ -27,7 +27,7 @@
       - docker
 
 - name: install python pip for ubuntu
-  apt:
+  package:
     name: python3-pip
     state: present
   when: ansible_os_family == "Debian"
