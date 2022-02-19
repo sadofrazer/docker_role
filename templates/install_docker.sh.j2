@@ -30,5 +30,6 @@
     sudo yum install -y docker-ce docker-ce-cli containerd.io
 {% else %}
    echo 'Distribution pas prise en charge'
+   return 1
 {% endif %}
    
