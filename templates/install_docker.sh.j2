@@ -28,13 +28,15 @@
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
     sudo yum install -y docker-ce docker-ce-cli containerd.io
-{% elif ansible_distribution: "Kali" %}
-    sudo apt update -y
-    sudo apt install -y docker.io
-    sudo systemctl enable docker --now
-    sudo usermod -aG docker $USER
 {% else %}
-   echo 'Distribution pas prise en charge'
-   return 1
+   {% if ansible_distribution: "Kali" %}
+      sudo apt update -y
+      sudo apt install -y docker.io
+      sudo systemctl enable docker --now
+      sudo usermod -aG docker $USER
+   {% else %}
+      echo 'Distribution pas prise en charge'
+      return 1
+   {% endif %}
 {% endif %}
    
