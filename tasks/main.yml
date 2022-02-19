@@ -30,7 +30,11 @@
   package:
     name: python3-pip
     state: present
-  when: ansible_os_family == "Debian"
+  when: ansible_distribution == "Ubuntu"
+
+- name: install python pip for Kali
+  command: "sudo apt update -y && sudo apt install python3-pip -y"
+  when: ansible_distribution == "Kali"
 
 - name: download pip script for centos
   get_url:
