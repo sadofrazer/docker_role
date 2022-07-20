@@ -1,7 +1,7 @@
 ---
 - name: "edit the name of the host"
   hostname: 
-    name: "{{ hostname }}"
+    name: "{{ inventory_hostname }}"
   when: edit_hostname == "yes"
 
 - name: Download Install docker script
