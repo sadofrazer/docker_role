@@ -19,12 +19,13 @@
     state: started
     enabled: yes
 
-- name: give the privilège to ubuntu
+- name: give the privilège to user
   user:
-    name: ubuntu
+    name: {{ ansible_user }}
     append: yes
     groups:
       - docker
+  when: ansible_user is defined
 
 - name: install python pip for ubuntu
   package:
