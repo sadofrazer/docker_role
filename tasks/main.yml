@@ -21,7 +21,7 @@
 
 - name: give the privilège to user
   user:
-    name: {{ ansible_user }}
+    name: "{{ ansible_user }}"
     append: yes
     groups:
       - docker
